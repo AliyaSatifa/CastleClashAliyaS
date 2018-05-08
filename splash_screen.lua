@@ -36,6 +36,11 @@ local function moveLogo()
     logo.x = logo.x + scrollSpeed
 end
 
+--change scene
+local function changeScene()
+    composer.gotoScene("main_menu", {effect = "flip", time = 3000})
+end
+
 
 -----------------------------------------------------------------------------------------
 -- GLOBAL SCENE FUNCTIONS
@@ -89,6 +94,8 @@ function scene:show( event )
 
      -- Call the moveLogo function as soon as we enter the frame.
         Runtime:addEventListener("enterFrame", moveLogo)
+
+        timer.performWithDelay(3000, changeScene)
 
 
     end
